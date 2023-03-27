@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: CompositionImages
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5725806163804296451
+  m_GuidHigh: 2877092715745552302
+  m_DataStore:
+    m_Storage: []
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 4886650761914812810
+      m_GuidHigh: 7602904306946436001
+    m_SerializedTextureGuid:
+      m_GuidLow: 9522898784020915928
+      m_GuidHigh: 1301229256754565371
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Base_Saw
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5268319011585119580
+      m_GuidHigh: 10043564050100305540
+    m_SerializedTextureGuid:
+      m_GuidLow: 15318885762404166231
+      m_GuidHigh: 17454255741226882457
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Base_Sine
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5002318987860374429
+      m_GuidHigh: 4034633659696817572
+    m_SerializedTextureGuid:
+      m_GuidLow: 7270676038170502097
+      m_GuidHigh: 13122331569484393723
+    m_Size: {x: 0.1, y: 0.1}
+    m_SpecifySize: 1
+    m_Name: Effect_Distortion
+    m_Texture: {fileID: 0}
