@@ -28,6 +28,16 @@ public class OscillatorButton : MonoBehaviour
         pdInstance.SendFloat("oscillator_type", osc_type);
     }
 
+    public void turnOn()
+    {
+        toggled = true;
+    }
+
+    public void turnOff()
+    {
+        toggled = false;
+    }
+
     void Update() { GetComponent<Outline>().enabled = toggled; }
 
 

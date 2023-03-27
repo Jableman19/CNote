@@ -20,6 +20,16 @@ public class EffectButton : MonoBehaviour
         pdInstance.SendBang(effect);
     }
 
+    public void turnOn()
+    {
+        toggled = true;
+    }
+
+    public void turnOff()
+    {
+        toggled = false;
+    }
+
     void Update()
     {
         gameObject.GetComponent<Outline>().enabled = toggled;
