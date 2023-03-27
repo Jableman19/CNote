@@ -5,9 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/CompositionScene.unity
     guid: 10fdc6e2ca3a547b5a69c0ab38b0fc22
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 3c468195abf0243bab62cacc4cbd514e
+  - enabled: 1
+    path: Assets/Scenes/SynthScene.unity
+    guid: 03a1313e27551406589c5af1d4d79049
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
