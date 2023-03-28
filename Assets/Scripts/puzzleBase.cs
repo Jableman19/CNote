@@ -63,7 +63,7 @@ public class puzzleBase : MonoBehaviour
         }
         else
         {
-            return prevChain.GetComponent<puzzleBase>().hasRoot();
+            return prevChain ? prevChain.GetComponent<puzzleBase>().hasRoot() : false;
         }
     }
 
