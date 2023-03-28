@@ -20,7 +20,10 @@ public class puzzleBase : MonoBehaviour
     public GameObject nextChain;
     public GameObject visual;
     public string puzzleName;
-    
+    public Effects effect;
+    public MockSynthManager synthController;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,15 +52,17 @@ public class puzzleBase : MonoBehaviour
         }
     }
 
+    bool isRoot()
+    {
+        return puzzleName.StartsWith("Base");
+    }
+
     bool hasRoot()
     {
-        Debug.Log("hasRootCheck");
-        if (puzzleName.StartsWith("Base"))
+        if (isRoot())
         {
-            Debug.Log("RootFound");
             return true;
-        }
-        else if(prevChain == null)
+        } else if(prevChain == null)
         {
             return false;
         }
@@ -70,13 +75,23 @@ public class puzzleBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((prevChain != null || nextChain != null) && !visual.activeSelf)
+        // if root and not active set off
+        if (isRoot() && !visual.activeSelf)
         {
             visual.SetActive(true);
+            synthController.setEffect(effect, true);
         }
-        else if((prevChain == null && nextChain == null) && visual.activeSelf)
+        else if(hasRoot() && !visual.activeSelf)
+        {
+            visual.SetActive(true);
+            synthController.setEffect(effect, true);
+            Debug.Log("here1");
+        }
+        else if(!hasRoot() && visual.activeSelf)
         {
             visual.SetActive(false);
+            synthController.setEffect(effect, false);
+            Debug.Log("here2");
         }
     }
 }

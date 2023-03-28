@@ -32,6 +32,21 @@ public class ARPlaceTrackedImages : MonoBehaviour
         trackedImagesManager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
+    Effects nameToEffect(string name)
+    {
+        switch (name) {
+            case "saw":
+                return Effects.SAW;
+            case "sine":
+                return Effects.SINE;
+            case "distortion":
+                return Effects.DISTORTION;
+            default:
+                return Effects.NONE;
+         }
+
+    }
+
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs) 
     {
         // Enable all seen images
@@ -41,6 +56,8 @@ public class ARPlaceTrackedImages : MonoBehaviour
             string imageName = trackedImage.referenceImage.name; 
             GameObject newPrefab = Instantiate(puzzlePiece, trackedImage.transform);
             newPrefab.GetComponent<puzzleBase>().puzzleName = imageName;
+            newPrefab.GetComponent<puzzleBase>().effect = nameToEffect(imageName);
+
             activePieces[imageName] = newPrefab;
             // Toggle corresponding sound
             foreach(Function f in callOnTracked) {
