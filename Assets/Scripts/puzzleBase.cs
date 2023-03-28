@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using System;
 
+[RequireComponent(typeof(Effect))]
 public class puzzleBase : MonoBehaviour
 {
     [Serializable]
@@ -20,14 +21,14 @@ public class puzzleBase : MonoBehaviour
     public GameObject nextChain;
     public GameObject visual;
     public string puzzleName;
-    public Effects effect;
-    public MockSynthManager synthController;
+    public Effect effect;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Get local effect component.
+        effect = GetComponent<Effect>();
     }
 
     void ToggleEffect(bool On)
@@ -54,7 +55,7 @@ public class puzzleBase : MonoBehaviour
 
     bool isRoot()
     {
-        return puzzleName.StartsWith("Base");
+        return effect.isBaseWaveform();
     }
 
     bool hasRoot()
@@ -75,23 +76,21 @@ public class puzzleBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if root and not active set off
+        // If root and not active set off
         if (isRoot() && !visual.activeSelf)
         {
             visual.SetActive(true);
-            synthController.setEffect(effect, true);
+            effect.setParameter(effect.root_parameter, true);
         }
         else if(hasRoot() && !visual.activeSelf)
         {
             visual.SetActive(true);
-            synthController.setEffect(effect, true);
-            Debug.Log("here1");
+            effect.setParameter(effect.root_parameter, true);
         }
         else if(!hasRoot() && visual.activeSelf)
         {
             visual.SetActive(false);
-            synthController.setEffect(effect, false);
-            Debug.Log("here2");
+            effect.setParameter(effect.root_parameter, false);
         }
     }
 }

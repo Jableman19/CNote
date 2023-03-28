@@ -32,17 +32,17 @@ public class ARPlaceTrackedImages : MonoBehaviour
         trackedImagesManager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
-    Effects nameToEffect(string name)
+    Effect nameToEffect(string name)
     {
         switch (name) {
             case "saw":
-                return Effects.SAW;
+                return new Effect(Parameter.SAW);
             case "sine":
-                return Effects.SINE;
+                return new Effect(Parameter.SAW);
             case "distortion":
-                return Effects.DISTORTION;
+                return new Effect(Parameter.DISTORTION);
             default:
-                return Effects.NONE;
+                throw new System.ArgumentException("Name is not an effect.", nameof(name));
          }
 
     }
