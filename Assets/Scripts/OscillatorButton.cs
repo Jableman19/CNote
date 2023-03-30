@@ -14,18 +14,30 @@ public class OscillatorButton : MonoBehaviour
     // 2 -> Noise
     public int osc_type = 0;
 
-    LibPdInstance pdInstance;
+    SynthManagerFMOD synthManager;
 
     void Awake()
     {
         GetComponent<Outline>().enabled = toggled;
-        pdInstance = GameObject.Find("SynthManager").GetComponent<LibPdInstance>();
+        synthManager = GameObject.Find("SynthManager").GetComponent<SynthManagerFMOD>();
     }
 
     public void OnClick() {
         turnOffAllButtons();
         toggled = true;
-        pdInstance.SendFloat("oscillator_type", osc_type);
+
+        // THIS IS NOT HOW YOU SHOULD HANDLE THIS!
+        // Only setting this up to ensure OscillatorButton continues to work before it's deprecated.
+        if(osc_type == 0)
+        {
+            synthManager.setParameter(Parameter.SINE, true); 
+        } else if (osc_type == 1)
+        {
+            synthManager.setParameter(Parameter.SAW, true);
+        } else
+        {
+            synthManager.setParameter(Parameter.NOISE, true);
+        }
     }
 
     public void turnOn()

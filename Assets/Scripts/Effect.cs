@@ -7,7 +7,7 @@ public class Effect : MonoBehaviour
     public Parameter root_parameter; // The ROOT NAME OF THE EFFECT (i.e LOW_PASS, DISTORT, SINE).
     public Parameter[] addl_parameters; // Additional parameters (i.e LOW_PASS_FREQUENCY, LOW_PASS_RESONANCE).
 
-    SynthManager synthManager;
+    SynthManagerFMOD synthManager;
 
     public Effect(Parameter p)
     {
@@ -30,7 +30,7 @@ public class Effect : MonoBehaviour
         // Automatically find SynthManager instance.
         try
         {
-            synthManager = GameObject.FindGameObjectWithTag("SynthManager").GetComponent<SynthManager>();
+            synthManager = GameObject.FindGameObjectWithTag("SynthManager").GetComponent<SynthManagerFMOD>();
         } catch (System.Exception e) {
             throw new System.NullReferenceException("A gameobject tagged 'SynthManager' with a <SynthManager> component must be present within the scene.");
         }

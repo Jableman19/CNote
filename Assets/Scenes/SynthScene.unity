@@ -195,7 +195,22 @@ PrefabInstance:
     - target: {fileID: 6429671182985120139, guid: 94604a6541a2f4f2a97d5610532dd939,
         type: 3}
       propertyPath: root_parameter
-      value: 3
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429671182985120139, guid: 94604a6541a2f4f2a97d5610532dd939,
+        type: 3}
+      propertyPath: addl_parameters.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429671182985120139, guid: 94604a6541a2f4f2a97d5610532dd939,
+        type: 3}
+      propertyPath: addl_parameters.Array.data[0]
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6429671182985120139, guid: 94604a6541a2f4f2a97d5610532dd939,
+        type: 3}
+      propertyPath: addl_parameters.Array.data[1]
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -687,8 +702,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 283266788}
-  - component: {fileID: 283266787}
-  - component: {fileID: 283266786}
   - component: {fileID: 283266789}
   m_Layer: 0
   m_Name: SynthManager
@@ -697,156 +710,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &283266786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283266785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2a7b9440bd246dfba41ecb93a4f67f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  patchName: MonoSynth
-  patchDir: /PdAssets/
-  patch: {fileID: 102900000, guid: dfc7032a60fee4b0db4f790a51725df4, type: 3}
-  pipePrintToConsole: 0
-  pureDataEvents:
-    Bang:
-      m_PersistentCalls:
-        m_Calls: []
-    Float:
-      m_PersistentCalls:
-        m_Calls: []
-    Symbol:
-      m_PersistentCalls:
-        m_Calls: []
-    List:
-      m_PersistentCalls:
-        m_Calls: []
-    Message:
-      m_PersistentCalls:
-        m_Calls: []
-  midiEvents:
-    MidiNoteOn:
-      m_PersistentCalls:
-        m_Calls: []
-    MidiControlChange:
-      m_PersistentCalls:
-        m_Calls: []
-    MidiProgramChange:
-      m_PersistentCalls:
-        m_Calls: []
-    MidiPitchBend:
-      m_PersistentCalls:
-        m_Calls: []
-    MidiAftertouch:
-      m_PersistentCalls:
-        m_Calls: []
-    MidiPolyAftertouch:
-      m_PersistentCalls:
-        m_Calls: []
-    MidiByte:
-      m_PersistentCalls:
-        m_Calls: []
---- !u!82 &283266787
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283266785}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!4 &283266788
 Transform:
   m_ObjectHideFlags: 0
@@ -871,7 +734,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 283266785}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a94c2eef262c6451e9359be8d603b1e1, type: 3}
+  m_Script: {fileID: 11500000, guid: b4521777947cd4ac78a42757bd93a3aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &314118057
@@ -1373,14 +1236,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!81 &509768788
-AudioListener:
+--- !u!114 &509768788
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 509768783}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 0}
 --- !u!1 &510397623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2047,7 +1915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45de3fcd7c29b42889e552e0f470ad9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  float_name: low_pass_resonance
+  float_name: 13
   title_text: 'Resonance: '
 --- !u!114 &966568642
 MonoBehaviour:
@@ -2397,7 +2265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45de3fcd7c29b42889e552e0f470ad9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  float_name: low_pass_frequency
+  float_name: 12
   title_text: 'Low Pass Frequency: '
 --- !u!114 &1284251572
 MonoBehaviour:
@@ -3480,7 +3348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818c5ddedf3ce4f18b38db0b0ce49e83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  effect: distortion
+  effect: 5
 --- !u!114 &2104129144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3524,7 +3392,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2104129145}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2104129143}
+        m_TargetAssemblyTypeName: EffectButton, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2104129145
 MonoBehaviour:
   m_ObjectHideFlags: 0

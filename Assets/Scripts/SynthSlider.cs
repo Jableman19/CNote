@@ -6,20 +6,20 @@ using UnityEngine.UI;
 public class SynthSlider : MonoBehaviour
 {
 
-    public string float_name;
+    public Parameter float_name;
     public string title_text;
-    LibPdInstance pdInstance;
+    SynthManagerFMOD synthManagerFMOD;
 
 
     void Awake()
     {
-        pdInstance = GameObject.Find("SynthManager").GetComponent<LibPdInstance>();
+        synthManagerFMOD = GameObject.Find("SynthManager").GetComponent<SynthManagerFMOD>();
     }
 
     public void OnValueChange()
     {
         float value = GetComponent<Slider>().value;
-        pdInstance.SendFloat(float_name, value);
+        synthManagerFMOD.setParameter(float_name, value);
         gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = title_text + value;
         Debug.Log(gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text);
     }

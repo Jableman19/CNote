@@ -4,6 +4,8 @@ public enum Parameter
     // Base
     SAW,
     SINE,
+    SQUARE,
+    TRIANGLE,
     NOISE,
 
     // EFFECTS

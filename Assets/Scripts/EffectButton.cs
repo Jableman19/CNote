@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class EffectButton : MonoBehaviour
 {
-    LibPdInstance pdInstance;
-    public string effect;
+    SynthManagerFMOD synthManagerFMOD;
+    public Parameter effect;
     bool toggled = false;
 
     public void Awake()
     {
-        pdInstance = GameObject.Find("SynthManager").GetComponent<LibPdInstance>();
+        synthManagerFMOD = GameObject.Find("SynthManager").GetComponent<SynthManagerFMOD>();
     }
 
     public void OnClick()
     {
         toggled = !toggled;
-        pdInstance.SendBang(effect);
+        synthManagerFMOD.setParameter(effect, toggled);
     }
 
     public void turnOn()
