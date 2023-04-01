@@ -105,6 +105,11 @@ public class SynthManagerFMOD : MonoBehaviour
         }
     }
 
+    public void playNote(float pitch)
+    {
+        CHECK_OK(osc.setParameterFloat((int) FMOD.DSP_OSCILLATOR.RATE, pitch));
+    }
+
     private void CHECK_OK(FMOD.RESULT result)
     {
         if(result != FMOD.RESULT.OK)
