@@ -17,12 +17,12 @@ public class ARPlaceTrackedImages : MonoBehaviour
 
     public Function[] callOnTracked;
 
-    //public GameObject[] ArPrefabs;
-    //private readonly Dictionary<string, GameObject> instantiatedPrefabs = new Dictionary<string, GameObject>();
+    public GameObject puzzlePiece;
     private ARTrackedImageManager trackedImagesManager;
     private Dictionary<string, bool> soundsActive = new Dictionary<string, bool>();
-
+    private Dictionary<string, GameObject> activePieces = new Dictionary<string, GameObject>();
     void Awake() {
+        Application.targetFrameRate = 60;
         trackedImagesManager = GetComponent<ARTrackedImageManager>();
     }
     void OnEnable() { 
@@ -32,6 +32,21 @@ public class ARPlaceTrackedImages : MonoBehaviour
         trackedImagesManager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
+    Effect nameToEffect(string name)
+    {
+        switch (name) {
+            case "saw":
+                return new Effect(Parameter.SAW);
+            case "sine":
+                return new Effect(Parameter.SAW);
+            case "distortion":
+                return new Effect(Parameter.DISTORTION);
+            default:
+                throw new System.ArgumentException("Name is not an effect.", nameof(name));
+         }
+
+    }
+
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs) 
     {
         // Enable all seen images
@@ -39,44 +54,51 @@ public class ARPlaceTrackedImages : MonoBehaviour
         { 
             // Get the name of the reference image
             string imageName = trackedImage.referenceImage.name; 
-            
-            //Search for prefab to spawn based on name
-            /*foreach (GameObject prefab in ArPrefabs) 
-            { 
-                if (string.CompareOrdinal(prefab.name, imageName) == 0 
-                    && !instantiatedPrefabs.ContainsKey(imageName)) 
-                { 
-                    GameObject newPrefab = Instantiate(prefab, trackedImage.transform); 
-                    instantiatedPrefabs[imageName] = newPrefab;
-                } 
-            } */
+            GameObject newPrefab = Instantiate(puzzlePiece, trackedImage.transform);
+            newPrefab.GetComponent<puzzleBase>().puzzleName = imageName;
+            newPrefab.GetComponent<puzzleBase>().effect = nameToEffect(imageName);
 
+            activePieces[imageName] = newPrefab;
             // Toggle corresponding sound
             foreach(Function f in callOnTracked) {
                 if(string.Compare(f.type + '_' + f.name, imageName, true) == 0) {
-                    f.OnTracked.Invoke();
-                    soundsActive[imageName] = true;
+                    if(f.type == "Base")
+                    {
+                        f.OnTracked.Invoke();
+                        soundsActive[imageName] = true;
+                    }
                 }
             }
         }
         foreach(ARTrackedImage trackedImage in eventArgs.updated) {
             string imageName = trackedImage.referenceImage.name; 
-            if(trackedImage.trackingState == TrackingState.Limited && soundsActive[imageName]) {
-                foreach(Function f in callOnTracked) {
-                    if(string.Compare(f.type + '_' + f.name, imageName, true) == 0) {
-                        if(f.type == "Effect") {
-                            f.OnTracked.Invoke();
+            if(trackedImage.trackingState == TrackingState.Limited) {
+                Destroy(activePieces[imageName]);
+                if (soundsActive[imageName])
+                {
+                    foreach (Function f in callOnTracked)
+                    {
+                        if (string.Compare(f.type + '_' + f.name, imageName, true) == 0)
+                        {
+                            if (f.type == "Base")
+                            {
+                                f.OnTracked.Invoke();
+                            }
+                            soundsActive[imageName] = false;
                         }
-                        soundsActive[imageName] = false;
                     }
                 }
-            } else if (trackedImage.trackingState == TrackingState.Tracking && !soundsActive[imageName]) {
-                foreach(Function f in callOnTracked) {
-                    if(string.Compare(f.type + '_' + f.name, imageName, true) == 0) {
-                        f.OnTracked.Invoke();
-                        soundsActive[imageName] = true;
-                    }
-                }
+                
+            } else if (trackedImage.trackingState == TrackingState.Tracking) {
+                GameObject newPrefab = Instantiate(puzzlePiece, trackedImage.transform);
+                activePieces[imageName] = newPrefab;
+                newPrefab.GetComponent<puzzleBase>().puzzleName = imageName;
+                //foreach (Function f in callOnTracked) {
+                //    if(string.Compare(f.type + '_' + f.name, imageName, true) == 0) {
+                //        f.OnTracked.Invoke();
+                //        soundsActive[imageName] = true;
+                //    }
+                //}
             }
         }
     }
