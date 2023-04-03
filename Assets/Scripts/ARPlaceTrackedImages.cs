@@ -35,11 +35,11 @@ public class ARPlaceTrackedImages : MonoBehaviour
     Effect nameToEffect(string name)
     {
         switch (name) {
-            case "saw":
+            case "Base_Saw":
                 return new Effect(Parameter.SAW);
-            case "sine":
-                return new Effect(Parameter.SAW);
-            case "distortion":
+            case "Base_Sine":
+                return new Effect(Parameter.SINE);
+            case "Effect_Distortion":
                 return new Effect(Parameter.DISTORTION);
             default:
                 throw new System.ArgumentException("Name is not an effect.", nameof(name));
@@ -54,11 +54,11 @@ public class ARPlaceTrackedImages : MonoBehaviour
         { 
             // Get the name of the reference image
             string imageName = trackedImage.referenceImage.name; 
-            GameObject newPrefab = Instantiate(puzzlePiece, trackedImage.transform);
-            newPrefab.GetComponent<puzzleBase>().puzzleName = imageName;
-            newPrefab.GetComponent<puzzleBase>().effect = nameToEffect(imageName);
+            // GameObject newPrefab = Instantiate(puzzlePiece, trackedImage.transform);
+            // newPrefab.GetComponent<puzzleBase>().puzzleName = imageName;
+            // newPrefab.GetComponent<puzzleBase>().effect = nameToEffect(imageName);
 
-            activePieces[imageName] = newPrefab;
+            // activePieces[imageName] = newPrefab;
             // Toggle corresponding sound
             foreach(Function f in callOnTracked) {
                 if(string.Compare(f.type + '_' + f.name, imageName, true) == 0) {
@@ -73,8 +73,25 @@ public class ARPlaceTrackedImages : MonoBehaviour
         foreach(ARTrackedImage trackedImage in eventArgs.updated) {
             string imageName = trackedImage.referenceImage.name; 
             if(trackedImage.trackingState == TrackingState.Limited) {
-                Destroy(activePieces[imageName]);
                 if (soundsActive[imageName])
+                {
+                    // Destroy(activePieces[imageName]);
+                    foreach (Function f in callOnTracked)
+                    {
+                        if (string.Compare(f.type + '_' + f.name, imageName, true) == 0)
+                        {
+                            if (f.type == "Base")
+                            {
+                                f.OnTracked.Invoke();
+                                soundsActive[imageName] = false;
+                            }
+                            
+                        }
+                    }
+                }
+                
+            } else if (trackedImage.trackingState == TrackingState.Tracking) {
+                if (!soundsActive[imageName])
                 {
                     foreach (Function f in callOnTracked)
                     {
@@ -83,16 +100,15 @@ public class ARPlaceTrackedImages : MonoBehaviour
                             if (f.type == "Base")
                             {
                                 f.OnTracked.Invoke();
+                                soundsActive[imageName] = true;
                             }
-                            soundsActive[imageName] = false;
                         }
                     }
+                    // GameObject newPrefab = Instantiate(puzzlePiece, trackedImage.transform);
+                    // newPrefab.GetComponent<puzzleBase>().puzzleName = imageName;
+                    // newPrefab.GetComponent<puzzleBase>().effect = nameToEffect(imageName);
+                    // activePieces[imageName] = newPrefab;
                 }
-                
-            } else if (trackedImage.trackingState == TrackingState.Tracking) {
-                GameObject newPrefab = Instantiate(puzzlePiece, trackedImage.transform);
-                activePieces[imageName] = newPrefab;
-                newPrefab.GetComponent<puzzleBase>().puzzleName = imageName;
                 //foreach (Function f in callOnTracked) {
                 //    if(string.Compare(f.type + '_' + f.name, imageName, true) == 0) {
                 //        f.OnTracked.Invoke();
@@ -101,5 +117,23 @@ public class ARPlaceTrackedImages : MonoBehaviour
                 //}
             }
         }
+
+        /*foreach(ARTrackedImage trackedImage in eventArgs.removed) {
+            string imageName = trackedImage.referenceImage.name; 
+            if (soundsActive[imageName]) {
+                Destroy(activePieces[imageName]);
+                foreach (Function f in callOnTracked)
+                {
+                    if (string.Compare(f.type + '_' + f.name, imageName, true) == 0)
+                    {
+                        if (f.type == "Base")
+                        {
+                            f.OnTracked.Invoke();
+                        }
+                        soundsActive[imageName] = false;
+                    }
+                }
+            }
+        }*/
     }
 }
