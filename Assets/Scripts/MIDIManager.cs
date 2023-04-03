@@ -8,11 +8,30 @@ public class MIDIManager : MonoBehaviour
     private MidiFile song;
     private static Playback _playback;
     SynthManagerFMOD synthManager;
+    public static MIDIManager Instance;
     public void Awake()
     {
         synthManager = gameObject.GetComponent<SynthManagerFMOD>();
+        
+        Instance = this;
 
-        song = MidiFile.Read(Application.streamingAssetsPath + "/MIDI/Mario64.mid");
+        /*song = MidiFile.Read(Application.streamingAssetsPath + "/MIDI/Mario64.mid");
+        _playback = song.GetPlayback(new PlaybackSettings
+        {
+            ClockSettings = new MidiClockSettings
+            {
+                CreateTickGeneratorCallback = () => new RegularPrecisionTickGenerator() // Cannot use HighPrecisionTickGenerator due to iOS. 
+            }
+        });
+        _playback.EventPlayed += OnNotePlayed;
+        _playback.Start();*/
+    }
+
+    public void ChangeSong(string filepath) {
+        if(_playback != null) {
+            _playback.Stop();
+        }
+        song = MidiFile.Read(filepath);
         _playback = song.GetPlayback(new PlaybackSettings
         {
             ClockSettings = new MidiClockSettings
@@ -28,7 +47,7 @@ public class MIDIManager : MonoBehaviour
     {
         NoteOnEvent note_on = e.Event as NoteOnEvent;
         synthManager.playNote(midiToFrequency(note_on.NoteNumber));
-        Debug.Log(midiToFrequency(note_on.NoteNumber));
+        //Debug.Log(midiToFrequency(note_on.NoteNumber));
         
     }
 
