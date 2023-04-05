@@ -21,12 +21,12 @@ public class puzzleFemale : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-
-        print(collision);
-
-        if(collision.gameObject.tag == "puzzleMale")
+        Debug.Log("TRIGER");
+        // If two pieces slide too close together, somehow collisions occur within the same puzzle piece.
+        // Therefore, check to make sure the parent gameobjects for both pieces are the same.
+        if(collision.gameObject.tag == "puzzleMale" &&
+            collision.gameObject.transform.parent.gameObject != this.gameObject.transform.parent.gameObject)
         {
-            print(collision.gameObject.transform.parent.gameObject);
             pBase.prevChain = collision.gameObject.transform.parent.gameObject;
             collision.gameObject.transform.parent.gameObject.GetComponent<puzzleBase>().nextChain = this.gameObject.transform.parent.gameObject;
         }

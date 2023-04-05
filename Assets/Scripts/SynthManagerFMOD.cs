@@ -37,7 +37,7 @@ public class SynthManagerFMOD : MonoBehaviour
         // Create effects.
         CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.DISTORTION, out distortion));
         CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.CHORUS, out chorus));
-        CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.CONVOLUTIONREVERB, out reverb));
+        CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.SFXREVERB, out reverb));
 
         // Create filters.
         CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.LOWPASS, out low_pass));

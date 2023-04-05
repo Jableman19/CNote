@@ -7,21 +7,10 @@ using System;
 [RequireComponent(typeof(Effect))]
 public class puzzleBase : MonoBehaviour
 {
-    [Serializable]
-    public struct Function
-    {
-        public string name;
-        public string type;
-        public UnityEvent On;
-        public UnityEvent Off;
-    }
-    public Function[] callOnChange;
-
     public GameObject prevChain;
     public GameObject nextChain;
     public GameObject visual;
-    public string puzzleName;
-    public Effect effect;
+    private Effect effect;
 
 
     // Start is called before the first frame update
@@ -29,28 +18,6 @@ public class puzzleBase : MonoBehaviour
     {
         // Get local effect component.
         effect = GetComponent<Effect>();
-    }
-
-    void ToggleEffect(bool On)
-    {
-        foreach (Function f in callOnChange)
-        {
-            if (string.Compare(f.type + '_' + f.name, puzzleName, true) == 0)
-            {
-                if (f.type == "Effect")
-                {
-                    if(On && hasRoot())
-                    {
-                        f.On.Invoke();
-                    }
-                    else
-                    {
-                        f.Off.Invoke();
-                    }
-                    
-                }
-            }
-        }
     }
 
     bool isRoot()

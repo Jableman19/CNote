@@ -15,8 +15,6 @@ public class ARPlaceTrackedImages : MonoBehaviour
         public UnityEvent OnTracked;
     }
 
-    public Function[] callOnTracked;
-
     public GameObject puzzlePiece;
     private ARTrackedImageManager trackedImagesManager;
     private Dictionary<string, bool> soundsActive = new Dictionary<string, bool>();
@@ -32,15 +30,17 @@ public class ARPlaceTrackedImages : MonoBehaviour
         trackedImagesManager.trackedImagesChanged -= OnTrackedImagesChanged;
     }
 
-    Effect nameToEffect(string name)
+    Parameter nameToEffect(string name)
     {
         switch (name) {
-            case "Base_Saw":
-                return new Effect(Parameter.SAW);
+            case "Effect_Reverb":
+                return Parameter.REVERB;
             case "Base_Sine":
-                return new Effect(Parameter.SINE);
+                return Parameter.SINE;
             case "Effect_Distortion":
-                return new Effect(Parameter.DISTORTION);
+                return Parameter.DISTORTION;
+            case "Effect_Chorus":
+                return Parameter.CHORUS;
             default:
                 throw new System.ArgumentException("Name is not an effect.", nameof(name));
          }
@@ -51,89 +51,46 @@ public class ARPlaceTrackedImages : MonoBehaviour
     {
         // Enable all seen images
         foreach (ARTrackedImage trackedImage in eventArgs.added) 
-        { 
-            // Get the name of the reference image
-            string imageName = trackedImage.referenceImage.name; 
-            // GameObject newPrefab = Instantiate(puzzlePiece, trackedImage.transform);
-            // newPrefab.GetComponent<puzzleBase>().puzzleName = imageName;
-            // newPrefab.GetComponent<puzzleBase>().effect = nameToEffect(imageName);
+        {
+            string imageName = trackedImage.referenceImage.name;
 
-            // activePieces[imageName] = newPrefab;
-            // Toggle corresponding sound
-            foreach(Function f in callOnTracked) {
-                if(string.Compare(f.type + '_' + f.name, imageName, true) == 0) {
-                    if(f.type == "Base")
-                    {
-                        f.OnTracked.Invoke();
-                        soundsActive[imageName] = true;
-                    }
-                }
+            GameObject new_piece; 
+            if(activePieces.TryGetValue(imageName, out new_piece))
+            {
+                Debug.Log("Piece is already detected within the scene.");
+            } else
+            {
+                new_piece = Instantiate(puzzlePiece, trackedImage.transform);
+                new_piece.GetComponentInChildren<Effect>().root_parameter = nameToEffect(imageName);
+                new_piece.transform.parent = trackedImage.transform;
+                activePieces.Add(imageName, new_piece);
             }
         }
         foreach(ARTrackedImage trackedImage in eventArgs.updated) {
-            string imageName = trackedImage.referenceImage.name; 
-            if(trackedImage.trackingState == TrackingState.Limited) {
-                if (soundsActive[imageName])
-                {
-                    // Destroy(activePieces[imageName]);
-                    foreach (Function f in callOnTracked)
-                    {
-                        if (string.Compare(f.type + '_' + f.name, imageName, true) == 0)
-                        {
-                            if (f.type == "Base")
-                            {
-                                f.OnTracked.Invoke();
-                                soundsActive[imageName] = false;
-                            }
-                            
-                        }
-                    }
-                }
-                
-            } else if (trackedImage.trackingState == TrackingState.Tracking) {
-                if (!soundsActive[imageName])
-                {
-                    foreach (Function f in callOnTracked)
-                    {
-                        if (string.Compare(f.type + '_' + f.name, imageName, true) == 0)
-                        {
-                            if (f.type == "Base")
-                            {
-                                f.OnTracked.Invoke();
-                                soundsActive[imageName] = true;
-                            }
-                        }
-                    }
-                    // GameObject newPrefab = Instantiate(puzzlePiece, trackedImage.transform);
-                    // newPrefab.GetComponent<puzzleBase>().puzzleName = imageName;
-                    // newPrefab.GetComponent<puzzleBase>().effect = nameToEffect(imageName);
-                    // activePieces[imageName] = newPrefab;
-                }
-                //foreach (Function f in callOnTracked) {
-                //    if(string.Compare(f.type + '_' + f.name, imageName, true) == 0) {
-                //        f.OnTracked.Invoke();
-                //        soundsActive[imageName] = true;
-                //    }
-                //}
+            string imageName = trackedImage.referenceImage.name;
+
+            // Detecting when a piece is no longer connected is super hard... This should work okay though.
+            if (trackedImage.trackingState == TrackingState.None || trackedImage.trackingState == TrackingState.Limited)
+            {
+                Destroy(activePieces[imageName]);
+                activePieces.Remove(imageName);
+            }
+
+            GameObject new_piece;
+            // If we lost the image, but find it again we need to add it back.
+            if (trackedImage.trackingState == TrackingState.Tracking && !activePieces.TryGetValue(imageName, out new_piece))
+            {
+                new_piece = Instantiate(puzzlePiece, trackedImage.transform);
+                new_piece.GetComponentInChildren<Effect>().root_parameter = nameToEffect(imageName);
+                new_piece.transform.parent = trackedImage.transform;
+                activePieces.Add(imageName, new_piece);
             }
         }
 
-        /*foreach(ARTrackedImage trackedImage in eventArgs.removed) {
-            string imageName = trackedImage.referenceImage.name; 
-            if (soundsActive[imageName]) {
-                Destroy(activePieces[imageName]);
-                foreach (Function f in callOnTracked)
-                {
-                    if (string.Compare(f.type + '_' + f.name, imageName, true) == 0)
-                    {
-                        if (f.type == "Base")
-                        {
-                            f.OnTracked.Invoke();
-                        }
-                        soundsActive[imageName] = false;
-                    }
-                }
-            }
-        }*/
+        foreach(ARTrackedImage trackedImage in eventArgs.removed) {
+            string imageName = trackedImage.referenceImage.name;
+            Destroy(activePieces[imageName]);
+            activePieces.Remove(imageName);
+        }
     }
 }

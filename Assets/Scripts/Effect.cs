@@ -34,6 +34,9 @@ public class Effect : MonoBehaviour
         } catch (System.Exception e) {
             throw new System.NullReferenceException("A gameobject tagged 'SynthManager' with a <SynthManager> component must be present within the scene.");
         }
+
+        // Start up effect.
+        // setParameter(root_parameter, true);
     }
 
     public void setParameter(Parameter p, bool status)
@@ -58,5 +61,10 @@ public class Effect : MonoBehaviour
         {
             synthManager.setParameter(p, value);
         }
+    }
+
+    public void OnDestroy()
+    {
+        setParameter(root_parameter, false);
     }
 }

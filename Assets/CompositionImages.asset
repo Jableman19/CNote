@@ -21,19 +21,19 @@ MonoBehaviour:
       m_GuidLow: 4886650761914812810
       m_GuidHigh: 7602904306946436001
     m_SerializedTextureGuid:
-      m_GuidLow: 1501768235244256785
-      m_GuidHigh: 4637150556901608299
-    m_Size: {x: 0.1, y: 0.07539063}
+      m_GuidLow: 9544511709707047055
+      m_GuidHigh: 13340512254674816315
+    m_Size: {x: 0.0762, y: 0.069394045}
     m_SpecifySize: 1
-    m_Name: Base_Saw
+    m_Name: Effect_Reverb
     m_Texture: {fileID: 0}
   - m_SerializedGuid:
       m_GuidLow: 5002318987860374429
       m_GuidHigh: 4034633659696817572
     m_SerializedTextureGuid:
-      m_GuidLow: 12975215562020678973
-      m_GuidHigh: 9465610050710993387
-    m_Size: {x: 0.2, y: 0.16309012}
+      m_GuidLow: 17602648691664311648
+      m_GuidHigh: 11947628990947513691
+    m_Size: {x: 0.0762, y: 0.06887308}
     m_SpecifySize: 1
     m_Name: Effect_Distortion
     m_Texture: {fileID: 0}
@@ -41,9 +41,19 @@ MonoBehaviour:
       m_GuidLow: 4875544432678471228
       m_GuidHigh: 425257964134912662
     m_SerializedTextureGuid:
-      m_GuidLow: 9540738743883943424
-      m_GuidHigh: 16771839832566075224
-    m_Size: {x: 0.2, y: 0.15966387}
+      m_GuidLow: 8374608575061406702
+      m_GuidHigh: 18417392669545086459
+    m_Size: {x: 0.0762, y: 0.07301394}
     m_SpecifySize: 1
     m_Name: Base_Sine
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5216434534499765431
+      m_GuidHigh: 1770252405966648228
+    m_SerializedTextureGuid:
+      m_GuidLow: 15334147666345375897
+      m_GuidHigh: 6126696193169629754
+    m_Size: {x: 0.0762, y: 0.06974611}
+    m_SpecifySize: 1
+    m_Name: Effect_Chorus
     m_Texture: {fileID: 0}
