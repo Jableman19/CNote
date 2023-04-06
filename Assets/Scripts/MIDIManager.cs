@@ -9,22 +9,16 @@ public class MIDIManager : MonoBehaviour
     private static Playback _playback;
     SynthManagerFMOD synthManager;
     public static MIDIManager Instance;
+
+    private bool playing;
+
     public void Awake()
     {
         synthManager = gameObject.GetComponent<SynthManagerFMOD>();
         
         Instance = this;
 
-        /*song = MidiFile.Read(Application.streamingAssetsPath + "/MIDI/Mario64.mid");
-        _playback = song.GetPlayback(new PlaybackSettings
-        {
-            ClockSettings = new MidiClockSettings
-            {
-                CreateTickGeneratorCallback = () => new RegularPrecisionTickGenerator() // Cannot use HighPrecisionTickGenerator due to iOS. 
-            }
-        });
-        _playback.EventPlayed += OnNotePlayed;
-        _playback.Start();*/
+        playing = false;
     }
 
     public void ChangeSong(string filepath) {
@@ -41,16 +35,29 @@ public class MIDIManager : MonoBehaviour
         });
         _playback.EventPlayed += OnNotePlayed;
         _playback.Start();
+        playing = true;
     }
 
     private void OnNotePlayed(object sender, MidiEventPlayedEventArgs e)
     {
         NoteOnEvent note_on = e.Event as NoteOnEvent;
-        synthManager.playNote(midiToFrequency(note_on.NoteNumber));
-        //Debug.Log(midiToFrequency(note_on.NoteNumber));
-        
+        synthManager.playNote(midiToFrequency(note_on.NoteNumber));        
     }
 
+    public void PauseSong() {
+        if (_playback != null)
+        {
+            _playback.Stop();
+        }
+    }
+    public void ResumeSong() {
+        if (_playback != null)
+        {
+            _playback.Start();
+        }
+    }
+
+    public bool isPlaying() { return _playback.IsRunning;  }
 
     private float midiToFrequency(int note)
     {
