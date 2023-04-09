@@ -4992,6 +4992,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f41f5f57602cc46358e448974a82b14c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualizations:
+  - {fileID: 2182563071559310086, guid: 15757b2ce2f6a4e7fb7ccedd0b392092, type: 3}
+  - {fileID: 567472339772688222, guid: 66a7a8439b47641cca46dd797dc9ab04, type: 3}
+  - {fileID: 373768411252127066, guid: 7a38efd88b9634fbf936543a8ee48925, type: 3}
   puzzlePiece: {fileID: 5492414551194194807, guid: 45368f399ded34594a115edf3529d8db,
     type: 3}
 --- !u!1 &1744215499

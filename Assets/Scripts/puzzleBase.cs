@@ -43,6 +43,8 @@ public class puzzleBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("Visual:" + visual.name);
+        print("Visual Active:" + visual.activeSelf);
         // If root and not active set off
         if (isRoot() && !visual.activeSelf)
         {

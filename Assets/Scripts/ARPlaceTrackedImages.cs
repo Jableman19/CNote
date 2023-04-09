@@ -15,6 +15,7 @@ public class ARPlaceTrackedImages : MonoBehaviour
         public UnityEvent OnTracked;
     }
 
+    public List<GameObject> visualizations;
     public GameObject puzzlePiece;
     private ARTrackedImageManager trackedImagesManager;
     private Dictionary<string, bool> soundsActive = new Dictionary<string, bool>();
@@ -41,12 +42,32 @@ public class ARPlaceTrackedImages : MonoBehaviour
                 return Parameter.DISTORTION;
             case "Effect_Chorus":
                 return Parameter.CHORUS;
+            case "Base_Saw":
+                return Parameter.SAW;   
             default:
                 throw new System.ArgumentException("Name is not an effect.", nameof(name));
          }
 
     }
 
+    GameObject nameToViz(string name)
+    {
+        switch (name)
+        {
+            case "Effect_Reverb":
+                return visualizations[1];
+            case "Base_Sine":
+                return visualizations[0];
+            case "Effect_Distortion":
+                return visualizations[0];
+            case "Effect_Chorus":
+                return visualizations[0];
+            case "Base_Saw":
+                return visualizations[2];
+            default:
+                throw new System.ArgumentException("Name is not an effect.", nameof(name));
+        }
+    }
     private void OnTrackedImagesChanged(ARTrackedImagesChangedEventArgs eventArgs) 
     {
         // Enable all seen images
@@ -64,6 +85,15 @@ public class ARPlaceTrackedImages : MonoBehaviour
                 new_piece.GetComponentInChildren<Effect>().root_parameter = nameToEffect(imageName);
                 new_piece.transform.parent = trackedImage.transform;
                 activePieces.Add(imageName, new_piece);
+                GameObject new_viz = Instantiate(nameToViz(imageName), new_piece.transform);
+                new_viz.transform.localPosition = new_piece.transform.position;
+                new_viz.transform.localScale = new Vector3(.1f, .1f, .1f);
+                new_viz.transform.rotation = new_piece.transform.rotation;
+                new_viz.transform.parent = new_piece.transform;
+                new_viz.SetActive(false);
+                new_piece.GetComponentInChildren<puzzleBase>().visual = new_viz;
+
+
             }
         }
         foreach(ARTrackedImage trackedImage in eventArgs.updated) {
@@ -84,6 +114,13 @@ public class ARPlaceTrackedImages : MonoBehaviour
                 new_piece.GetComponentInChildren<Effect>().root_parameter = nameToEffect(imageName);
                 new_piece.transform.parent = trackedImage.transform;
                 activePieces.Add(imageName, new_piece);
+                GameObject new_viz = Instantiate(nameToViz(imageName), new_piece.transform);
+                new_viz.transform.localPosition = new_piece.transform.position;
+                new_viz.transform.localScale = new Vector3(.05f, .05f, .05f);
+                new_viz.transform.rotation = new_piece.transform.rotation;
+                new_viz.transform.parent = new_piece.transform;
+                new_viz.SetActive(false);
+                new_piece.GetComponentInChildren<puzzleBase>().visual = new_viz;
             }
         }
 
