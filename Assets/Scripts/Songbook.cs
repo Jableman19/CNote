@@ -55,5 +55,7 @@ public class Songbook : MonoBehaviour
     void switchSong(Song s)
     {
        MIDIManager.Instance.ChangeSong(s.src);
+       MIDI_Play_Pause.instance.playing = true;
+       MIDI_Play_Pause.instance.img.sprite = MIDI_Play_Pause.instance.pause;
     }
 }
