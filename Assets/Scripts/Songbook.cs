@@ -41,11 +41,11 @@ public class Songbook : MonoBehaviour
 
         // Generate buttons for songs
         foreach(Song s in songs) {
-            Debug.Log(s.name);
+            Debug.Log(s.name + " " + s.src);
             GameObject btn = Instantiate(button);
             btn.transform.parent = gameObject.transform;
             btn.GetComponent<Button>().onClick.AddListener(() => switchSong(s));
-            TMP_Text txt = button.GetComponentInChildren<TMP_Text>();
+            TMP_Text txt = btn.GetComponentInChildren<TMP_Text>();
             btn.transform.localScale = new Vector3(1, 1, 1);
             txt.text = s.name;
         }
