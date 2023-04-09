@@ -110,6 +110,16 @@ public class SynthManagerFMOD : MonoBehaviour
         CHECK_OK(osc.setParameterFloat((int) FMOD.DSP_OSCILLATOR.RATE, pitch));
     }
 
+    public void pause() { CHECK_OK(group.setPaused(true)); }
+    public void resume() { CHECK_OK(group.setPaused(false)); }
+
+    public bool getPaused()
+    {
+        bool result;
+        CHECK_OK(group.getPaused(out result));
+        return result;
+    }
+
     private void CHECK_OK(FMOD.RESULT result)
     {
         if(result != FMOD.RESULT.OK)

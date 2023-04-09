@@ -34,6 +34,7 @@ public class MIDIManager : MonoBehaviour
             }
         });
         _playback.EventPlayed += OnNotePlayed;
+        synthManager.resume();
         _playback.Start();
         playing = true;
     }
@@ -47,17 +48,22 @@ public class MIDIManager : MonoBehaviour
     public void PauseSong() {
         if (_playback != null)
         {
+            synthManager.pause();
             _playback.Stop();
         }
     }
     public void ResumeSong() {
         if (_playback != null)
         {
+            synthManager.resume();
             _playback.Start();
         }
     }
 
-    public bool isPlaying() { return _playback.IsRunning;  }
+    public bool isPlaying() {
+        if (_playback == null) return false;
+        return _playback.IsRunning;
+    }
 
     private float midiToFrequency(int note)
     {

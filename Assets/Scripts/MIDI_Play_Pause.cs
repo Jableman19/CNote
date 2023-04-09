@@ -36,21 +36,28 @@ public class MIDI_Play_Pause : MonoBehaviour
     //    }
     //}
     SynthManagerFMOD synthManager;
+    bool playing;
 
     void Awake()
     {
-        synthManager = gameObject.GetComponent<SynthManagerFMOD>();
+        synthManager = GameObject.FindGameObjectWithTag("SynthManager").GetComponent<SynthManagerFMOD>();
+        playing = true;
     }
+
     public void PlayPause()
     {
-            if (MIDIManager.Instance.isPlaying())
-            {
-                MIDIManager.Instance.PauseSong();
-            }
-            else
-            {
-                MIDIManager.Instance.ResumeSong();
-            }
+        if (playing) { synthManager.pause(); }
+        else { synthManager.resume(); }
+        if (MIDIManager.Instance.isPlaying())
+        {
+            MIDIManager.Instance.PauseSong();
+        }
+        else
+        {
+            MIDIManager.Instance.ResumeSong();
+        }
+
+        playing = !playing;
     }
 
 

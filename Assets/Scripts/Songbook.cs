@@ -41,7 +41,7 @@ public class Songbook : MonoBehaviour
 
         // Generate buttons for songs
         foreach(Song s in songs) {
-            //Debug.Log(s.name);
+            Debug.Log(s.name);
             GameObject btn = Instantiate(button);
             btn.transform.parent = gameObject.transform;
             btn.GetComponent<Button>().onClick.AddListener(() => switchSong(s));
