@@ -340,7 +340,7 @@ MonoBehaviour:
   prevChain: {fileID: 0}
   nextChain: {fileID: 0}
   visual: {fileID: 0}
-  animating: 0
+  anim: {fileID: 0}
 --- !u!114 &6429671182985120139
 MonoBehaviour:
   m_ObjectHideFlags: 0

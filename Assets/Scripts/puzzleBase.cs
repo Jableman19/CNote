@@ -48,7 +48,7 @@ public class puzzleBase : MonoBehaviour
     {
         /*print("Visual:" + visual.name);
         print("Visual Active:" + anim.enabled);*/
-        print("Connected: " + hasRoot());
+        //print("Connected: " + hasRoot());
         // If root and not active set off
         if (isRoot() && !anim.enabled)
         {
