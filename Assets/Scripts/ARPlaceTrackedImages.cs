@@ -17,9 +17,11 @@ public class ARPlaceTrackedImages : MonoBehaviour
 
     public List<GameObject> visualizations;
     public GameObject puzzlePiece;
+    public float timeToDelete = 1.5f;
     private ARTrackedImageManager trackedImagesManager;
     private Dictionary<string, bool> soundsActive = new Dictionary<string, bool>();
     private Dictionary<string, GameObject> activePieces = new Dictionary<string, GameObject>();
+    private Dictionary<string, float> limitedPieces = new Dictionary<string, float>();
     void Awake() {
         Application.targetFrameRate = 60;
         trackedImagesManager = GetComponent<ARTrackedImageManager>();
@@ -29,6 +31,22 @@ public class ARPlaceTrackedImages : MonoBehaviour
     } 
     void OnDisable() { 
         trackedImagesManager.trackedImagesChanged -= OnTrackedImagesChanged;
+    }
+
+    public void Update()
+    {
+        foreach(string imageName in limitedPieces.Keys)
+        {
+            limitedPieces[imageName] += Time.deltaTime;
+
+            if(limitedPieces[imageName] > timeToDelete)
+            {
+                Destroy(activePieces[imageName]);
+                activePieces.Remove(imageName);
+                limitedPieces.Remove(imageName);
+            }
+
+        }
     }
 
     Parameter nameToEffect(string name)
@@ -100,27 +118,46 @@ public class ARPlaceTrackedImages : MonoBehaviour
             string imageName = trackedImage.referenceImage.name;
 
             // Detecting when a piece is no longer connected is super hard... This should work okay though.
-            if (trackedImage.trackingState == TrackingState.None || trackedImage.trackingState == TrackingState.Limited)
+            if (trackedImage.trackingState == TrackingState.None)
             {
                 Destroy(activePieces[imageName]);
                 activePieces.Remove(imageName);
             }
 
-            GameObject new_piece;
-            // If we lost the image, but find it again we need to add it back.
-            if (trackedImage.trackingState == TrackingState.Tracking && !activePieces.TryGetValue(imageName, out new_piece))
+            if (trackedImage.trackingState == TrackingState.Limited)
             {
-                new_piece = Instantiate(puzzlePiece, trackedImage.transform);
-                new_piece.GetComponentInChildren<Effect>().root_parameter = nameToEffect(imageName);
-                new_piece.transform.parent = trackedImage.transform;
-                activePieces.Add(imageName, new_piece);
-                GameObject new_viz = Instantiate(nameToViz(imageName), new_piece.transform);
-                new_viz.transform.localPosition = new_piece.transform.position;
-                new_viz.transform.localScale = new Vector3(.05f, .05f, .05f);
-                new_viz.transform.rotation = new_piece.transform.rotation;
-                new_viz.transform.parent = new_piece.transform;
-                new_viz.SetActive(false);
-                new_piece.GetComponentInChildren<puzzleBase>().visual = new_viz;
+                float time;
+                if(!limitedPieces.TryGetValue(imageName, out time)) {
+                    limitedPieces.Add(imageName, 0f);
+                }
+            }
+
+            GameObject piece;
+            // If we lost the image, but find it again we need to add it back.
+            if (trackedImage.trackingState == TrackingState.Tracking)
+            {
+                if (!activePieces.TryGetValue(imageName, out piece))
+                {
+                    piece = Instantiate(puzzlePiece, trackedImage.transform);
+                    piece.GetComponentInChildren<Effect>().root_parameter = nameToEffect(imageName);
+                    piece.transform.parent = trackedImage.transform;
+                    activePieces.Add(imageName, piece);
+                    GameObject new_viz = Instantiate(nameToViz(imageName), piece.transform);
+                    new_viz.transform.localPosition = piece.transform.position;
+                    new_viz.transform.localScale = new Vector3(.05f, .05f, .05f);
+                    new_viz.transform.rotation = piece.transform.rotation;
+                    new_viz.transform.parent = piece.transform;
+                    new_viz.SetActive(false);
+                    piece.GetComponentInChildren<puzzleBase>().visual = new_viz;
+                }
+
+                float time;
+                if(limitedPieces.TryGetValue(imageName, out time))
+                {
+                    limitedPieces.Remove(imageName);
+                }
+
+
             }
         }
 
