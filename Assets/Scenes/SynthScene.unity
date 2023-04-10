@@ -4862,11 +4862,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualizations:
-  - {fileID: 2182563071559310086, guid: 15757b2ce2f6a4e7fb7ccedd0b392092, type: 3}
-  - {fileID: 567472339772688222, guid: 66a7a8439b47641cca46dd797dc9ab04, type: 3}
+  - {fileID: 8463971600623853357, guid: 7aa341f59060f4a9db98408c009c93a7, type: 3}
+  - {fileID: 6507752923099231684, guid: a16adf31f83844882bb5841582468d2a, type: 3}
   - {fileID: 373768411252127066, guid: 7a38efd88b9634fbf936543a8ee48925, type: 3}
   puzzlePiece: {fileID: 5492414551194194807, guid: 45368f399ded34594a115edf3529d8db,
     type: 3}
+  timeToDelete: 1.5
 --- !u!1 &1744215499
 GameObject:
   m_ObjectHideFlags: 0

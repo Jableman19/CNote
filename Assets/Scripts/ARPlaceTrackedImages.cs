@@ -75,11 +75,11 @@ public class ARPlaceTrackedImages : MonoBehaviour
             case "Effect_Reverb":
                 return visualizations[1];
             case "Base_Sine":
-                return visualizations[0];
+                return visualizations[2];
             case "Effect_Distortion":
                 return visualizations[0];
             case "Effect_Chorus":
-                return visualizations[0];
+                return visualizations[2];
             case "Base_Saw":
                 return visualizations[2];
             default:
@@ -143,10 +143,10 @@ public class ARPlaceTrackedImages : MonoBehaviour
                     piece.transform.parent = trackedImage.transform;
                     activePieces.Add(imageName, piece);
                     GameObject new_viz = Instantiate(nameToViz(imageName), piece.transform);
-                    new_viz.transform.localPosition = piece.transform.position;
-                    new_viz.transform.localScale = new Vector3(.05f, .05f, .05f);
-                    new_viz.transform.rotation = piece.transform.rotation;
-                    new_viz.transform.parent = piece.transform;
+                    // new_viz.transform.localPosition = piece.transform.position;
+                    // new_viz.transform.localScale = new Vector3(.05f, .05f, .05f);
+                    // new_viz.transform.rotation = piece.transform.rotation;
+                    // new_viz.transform.parent = piece.transform;
                     new_viz.SetActive(false);
                     piece.GetComponentInChildren<puzzleBase>().visual = new_viz;
                 }
