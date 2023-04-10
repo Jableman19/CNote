@@ -104,11 +104,7 @@ public class ARPlaceTrackedImages : MonoBehaviour
                 new_piece.transform.parent = trackedImage.transform;
                 activePieces.Add(imageName, new_piece);
                 GameObject new_viz = Instantiate(nameToViz(imageName), new_piece.transform);
-                //new_viz.transform.localPosition = new_piece.transform.position;
-                //new_viz.transform.localScale = new Vector3(.1f, .1f, .1f);
-                //new_viz.transform.rotation = new_piece.transform.rotation;
-                //new_viz.transform.parent = new_piece.transform;
-                new_viz.SetActive(false);
+                new_viz.GetComponentInChildren<puzzleBase>().animating = false;
                 new_piece.GetComponentInChildren<puzzleBase>().visual = new_viz;
 
 
@@ -143,11 +139,7 @@ public class ARPlaceTrackedImages : MonoBehaviour
                     piece.transform.parent = trackedImage.transform;
                     activePieces.Add(imageName, piece);
                     GameObject new_viz = Instantiate(nameToViz(imageName), piece.transform);
-                    // new_viz.transform.localPosition = piece.transform.position;
-                    // new_viz.transform.localScale = new Vector3(.05f, .05f, .05f);
-                    // new_viz.transform.rotation = piece.transform.rotation;
-                    // new_viz.transform.parent = piece.transform;
-                    new_viz.SetActive(false);
+                    new_viz.GetComponentInChildren<puzzleBase>().animating = false;
                     piece.GetComponentInChildren<puzzleBase>().visual = new_viz;
                 }
 

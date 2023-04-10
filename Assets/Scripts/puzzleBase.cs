@@ -10,6 +10,7 @@ public class puzzleBase : MonoBehaviour
     public GameObject prevChain;
     public GameObject nextChain;
     public GameObject visual;
+    public bool animating = false;
     private Effect effect;
 
 
@@ -46,20 +47,23 @@ public class puzzleBase : MonoBehaviour
         print("Visual:" + visual.name);
         print("Visual Active:" + visual.activeSelf);
         // If root and not active set off
-        if (isRoot() && !visual.activeSelf)
+        if (isRoot() && !animating)
         {
-            visual.SetActive(true);
+            visual.GetComponent<Animator>().enabled = true;
             effect.setParameter(effect.root_parameter, true);
+            animating = true;
         }
-        else if(hasRoot() && !visual.activeSelf)
+        else if(hasRoot() && !animating)
         {
-            visual.SetActive(true);
+            visual.GetComponent<Animator>().enabled = true;
             effect.setParameter(effect.root_parameter, true);
+            animating = true;
         }
-        else if(!hasRoot() && visual.activeSelf)
+        else if(!hasRoot() && animating)
         {
-            visual.SetActive(false);
+            visual.GetComponent<Animator>().enabled = false;
             effect.setParameter(effect.root_parameter, false);
+            animating = false;
         }
     }
 }
