@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Cube.014
+  m_Mask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: Cube
+    m_Weight: 0
+  - m_Path: Cube.001
+    m_Weight: 0
+  - m_Path: Cube.001/Cube.002
+    m_Weight: 0
+  - m_Path: Cube.001/Cube.009
+    m_Weight: 0
+  - m_Path: Cube.005
+    m_Weight: 0
+  - m_Path: Cube.005/Cube.003
+    m_Weight: 0
+  - m_Path: Cube.005/Cube.004
+    m_Weight: 0
+  - m_Path: Cube.007
+    m_Weight: 0
+  - m_Path: Cube.007/Cube.006
+    m_Weight: 0
+  - m_Path: Cube.007/Cube.008
+    m_Weight: 0
+  - m_Path: Cube.011
+    m_Weight: 0
+  - m_Path: Cube.011/Cube.010
+    m_Weight: 0
+  - m_Path: Cube.011/Cube.012
+    m_Weight: 0
+  - m_Path: Cube.014
+    m_Weight: 1
+  - m_Path: Cube.014/Cube.013
+    m_Weight: 0
+  - m_Path: Cube.014/Cube.015
+    m_Weight: 0
+  - m_Path: Cube.016
+    m_Weight: 0
+  - m_Path: Cube.016/Cube.017
+    m_Weight: 0
+  - m_Path: Cube.016/Cube.018
+    m_Weight: 0
+  - m_Path: Sun
+    m_Weight: 0
