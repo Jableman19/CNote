@@ -10,7 +10,8 @@ public class puzzleBase : MonoBehaviour
     public GameObject prevChain;
     public GameObject nextChain;
     public GameObject visual;
-    public bool animating = false;
+    //public bool animating = true;
+    [HideInInspector] public Animator anim;
     private Effect effect;
 
 
@@ -19,6 +20,7 @@ public class puzzleBase : MonoBehaviour
     {
         // Get local effect component.
         effect = GetComponent<Effect>();
+        anim = visual.GetComponent<Animator>();
     }
 
     bool isRoot()
@@ -44,26 +46,34 @@ public class puzzleBase : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Visual:" + visual.name);
-        print("Visual Active:" + visual.activeSelf);
+        /*print("Visual:" + visual.name);
+        print("Visual Active:" + anim.enabled);*/
+        print("Connected: " + hasRoot());
         // If root and not active set off
-        if (isRoot() && !animating)
+        if (isRoot() && !anim.enabled)
         {
-            visual.GetComponent<Animator>().enabled = true;
+            Animator anim = visual.GetComponent<Animator>();
+            anim.enabled = true;
+            // anim.Rebind();
+            // anim.Update(0f);
             effect.setParameter(effect.root_parameter, true);
-            animating = true;
+            //animating = true;
         }
-        else if(hasRoot() && !animating)
+        else if(hasRoot() && !anim.enabled)
         {
-            visual.GetComponent<Animator>().enabled = true;
+            Animator anim = visual.GetComponent<Animator>();
+            anim.enabled = true;
+            // anim.Rebind();
+            // anim.Update(0f);
+            visual.GetComponent<ParticleSystem>().Play();
             effect.setParameter(effect.root_parameter, true);
-            animating = true;
+            //animating = true;
         }
-        else if(!hasRoot() && animating)
+        else if(!hasRoot() && anim.enabled)
         {
             visual.GetComponent<Animator>().enabled = false;
             effect.setParameter(effect.root_parameter, false);
-            animating = false;
+            //animating = false;
         }
     }
 }
