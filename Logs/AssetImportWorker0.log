@@ -295,3 +295,140 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 318.810834 seconds.
+  path: Assets/Prefabs/Popup.prefab
+  artifactKey: Guid(9bb74d2f46e5b487b957195ed2da0093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Popup.prefab using Guid(9bb74d2f46e5b487b957195ed2da0093) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b48eedf2cb9675fd3b1e4c6f4edbd2de') in 0.094198 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Prefabs/Puzzle_Whole.prefab
+  artifactKey: Guid(45368f399ded34594a115edf3529d8db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Puzzle_Whole.prefab using Guid(45368f399ded34594a115edf3529d8db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '16d80db45a1e2944f80f6deb2d689464') in 0.365905 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.972101 seconds.
+  path: Assets/PuzzleViz/Saw/Sphere.mask
+  artifactKey: Guid(22588f9b2534a4922b4a2c32d7f98794) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PuzzleViz/Saw/Sphere.mask using Guid(22588f9b2534a4922b4a2c32d7f98794) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f6ebe5f4ce9f69753632bea3d3e5460') in 0.009386 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/PuzzleViz/Saw/Sphere 2.mask
+  artifactKey: Guid(604068842aded4f6c93c146fe46b46c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PuzzleViz/Saw/Sphere 2.mask using Guid(604068842aded4f6c93c146fe46b46c5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '35dd94e1af1790a3ebde2f01cda393ff') in 0.011811 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000092 seconds.
+  path: Assets/PuzzleViz/Saw/Sphere 5.mask
+  artifactKey: Guid(b1c5aa3ee595342c1a0cf5a39ead7e10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PuzzleViz/Saw/Sphere 5.mask using Guid(b1c5aa3ee595342c1a0cf5a39ead7e10) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a81ef5b0ed60fefbfe967b280ccc5d96') in 0.010550 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000074 seconds.
+  path: Assets/PuzzleViz/Saw/Sphere 1.mask
+  artifactKey: Guid(3e35fba1ad4094568988bbcd8116ea46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PuzzleViz/Saw/Sphere 1.mask using Guid(3e35fba1ad4094568988bbcd8116ea46) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '093d87efe75b111a91cad232673772ed') in 0.007505 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/PuzzleViz/Saw/Sphere 6.mask
+  artifactKey: Guid(b57ea9867a1344a0b9ad277ac777ce54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PuzzleViz/Saw/Sphere 6.mask using Guid(b57ea9867a1344a0b9ad277ac777ce54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1937786bae1dc2435a28fa69ba6f5a6') in 0.008228 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/PuzzleViz/Saw/Sphere 4.mask
+  artifactKey: Guid(00c0cf0f1438d4204ae95205121c0f2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PuzzleViz/Saw/Sphere 4.mask using Guid(00c0cf0f1438d4204ae95205121c0f2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '80110243e514e32fd97707dfdcade3b0') in 0.011466 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/PuzzleViz/Saw/Sphere 3.mask
+  artifactKey: Guid(460c0ab3e8154400f8b392875f23508d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PuzzleViz/Saw/Sphere 3.mask using Guid(460c0ab3e8154400f8b392875f23508d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '85d2eaf43d45e9e7b091234af170c07f') in 0.008771 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/PuzzleViz/Saw/Sphere 8.mask
+  artifactKey: Guid(61a3609bd24f54013bc223fb7c4ff59f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PuzzleViz/Saw/Sphere 8.mask using Guid(61a3609bd24f54013bc223fb7c4ff59f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '67e95fc6c23981d3f9388dddb103ffa8') in 0.009608 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/PuzzleViz/Saw/Sphere 7.mask
+  artifactKey: Guid(059bb30c3502746d583045618939c9fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/PuzzleViz/Saw/Sphere 7.mask using Guid(059bb30c3502746d583045618939c9fc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3881999138920f7b6d3a5154a64ee977') in 0.007930 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.012559 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\jonah\OneDrive\Desktop\498-p3\CNote\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\jonah\OneDrive\Desktop\498-p3\CNote\Library\PackageCache\com.unity.visualscripting@1.7.8\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Refreshing native plugins compatible for Editor in 1.32 ms, found 13 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+- Completed reload, in  1.180 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1181ms)
+		BeginReloadAssembly (143ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (4ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (46ms)
+		EndReloadAssembly (935ms)
+			LoadAssemblies (87ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (308ms)
+				TypeCache.Initialize (302ms)
+					TypeCache.ScanAssembly (296ms)
+				ResolveRequiredComponents (7ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (425ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (26ms)
+				SetLoadedEditorAssemblies (6ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (275ms)
+				ProcessInitializeOnLoadMethodAttributes (30ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 13.17 ms, found 13 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4724 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 105 unused Assets / (48.5 KB). Loaded Objects now: 5196.
+Memory consumption went from 0.71 GB to 0.71 GB.
+Total: 3.747700 ms (FindLiveObjects: 0.386300 ms CreateObjectMapping: 0.402200 ms MarkObjects: 2.870900 ms  DeleteObjects: 0.087100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
