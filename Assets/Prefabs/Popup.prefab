@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 515690947365015570}
   - component: {fileID: 2587904186204433959}
   - component: {fileID: 8294441320365477750}
+  - component: {fileID: 1068646916875776190}
+  - component: {fileID: 2023469405650465931}
   m_Layer: 5
   m_Name: Popup
-  m_TagString: Untagged
+  m_TagString: Popup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,6 +106,31 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1068646916875776190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191672980003029040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625419ea5ac454471844cd95c62dac9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &2023469405650465931
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191672980003029040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 7, y: 5, z: 0.1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1093480128188861851
 GameObject:
   m_ObjectHideFlags: 0

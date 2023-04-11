@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4908,9 +4908,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   visualizations:
+  - {fileID: 5264426410834748233, guid: 227f0f899c27a564f89fe1edf95081ef, type: 3}
+  - {fileID: 657060507808274394, guid: 92bd11811f73d3943b9a1a37f552eab4, type: 3}
+  - {fileID: 632736794597812781, guid: 2702c8e4603d88c4db3a53e00e163d36, type: 3}
+  - {fileID: 4416107659915626822, guid: bb653136e85afed4db72ebb0c58ceb46, type: 3}
+  - {fileID: 4657977418864661649, guid: c0da4d9e2f942924d8c408f3646bad0b, type: 3}
   - {fileID: 8463971600623853357, guid: 7aa341f59060f4a9db98408c009c93a7, type: 3}
   - {fileID: 6507752923099231684, guid: a16adf31f83844882bb5841582468d2a, type: 3}
-  - {fileID: 373768411252127066, guid: 7a38efd88b9634fbf936543a8ee48925, type: 3}
+  - {fileID: 5655151947259586720, guid: d7d5dd6c5ecbe024fae5c138eef30626, type: 3}
   puzzlePiece: {fileID: 5492414551194194807, guid: 45368f399ded34594a115edf3529d8db,
     type: 3}
   timeToDelete: 1.5

@@ -32,15 +32,24 @@ public class TapManager : MonoBehaviour
         if(m_RaycastManager.Raycast(Input.GetTouch(0).position, m_Hits)) {
             if(Input.GetTouch(0).phase == TouchPhase.Ended) {
                 if(Physics.Raycast(ray, out hit)) {
+                    print(hit.collider.gameObject.tag);
                     if(hit.collider.gameObject.tag == "puzzleFemale") {
                         tappedObject = hit.collider.gameObject;
                         puzzleBase b = tappedObject.transform.parent.GetComponent<puzzleBase>();
                         GameObject popup = b.visual.transform.Find("Popup").gameObject;
-                        if(popup.activeSelf) {
+                        popup.SetActive(true);
+                    } else if (hit.collider.gameObject.tag == "Popup") {
+                        return;
+                    } else {
+                        GameObject[] popups = GameObject.FindGameObjectsWithTag("Popup");
+                        foreach(GameObject popup in popups) {
                             popup.SetActive(false);
-                        } else {
-                            popup.SetActive(true);
                         }
+                    }
+                } else {
+                    GameObject[] popups = GameObject.FindGameObjectsWithTag("Popup");
+                    foreach(GameObject popup in popups) {
+                        popup.SetActive(false);
                     }
                 }
             }

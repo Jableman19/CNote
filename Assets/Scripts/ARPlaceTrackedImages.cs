@@ -52,16 +52,16 @@ public class ARPlaceTrackedImages : MonoBehaviour
     Parameter nameToEffect(string name)
     {
         switch (name) {
-            case "Effect_Reverb":
-                return Parameter.REVERB;
             case "Base_Sine":
                 return Parameter.SINE;
+            case "Base_Saw":
+                return Parameter.SAW;  
             case "Effect_Distortion":
                 return Parameter.DISTORTION;
+            case "Effect_Reverb":
+                return Parameter.REVERB;
             case "Effect_Chorus":
-                return Parameter.CHORUS;
-            case "Base_Saw":
-                return Parameter.SAW;   
+                return Parameter.CHORUS; 
             default:
                 throw new System.ArgumentException("Name is not an effect.", nameof(name));
          }
@@ -72,16 +72,16 @@ public class ARPlaceTrackedImages : MonoBehaviour
     {
         switch (name)
         {
-            case "Effect_Reverb":
-                return visualizations[1];
             case "Base_Sine":
-                return visualizations[2];
-            case "Effect_Distortion":
                 return visualizations[0];
-            case "Effect_Chorus":
-                return visualizations[2];
             case "Base_Saw":
-                return visualizations[2];
+                return visualizations[1];
+            case "Effect_Distortion":
+                return visualizations[5];
+            case "Effect_Reverb":
+                return visualizations[6];
+            case "Effect_Chorus":
+                return visualizations[7];
             default:
                 throw new System.ArgumentException("Name is not an effect.", nameof(name));
         }
