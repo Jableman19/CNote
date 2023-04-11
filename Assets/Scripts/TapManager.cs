@@ -35,8 +35,12 @@ public class TapManager : MonoBehaviour
                     if(hit.collider.gameObject.tag == "puzzleFemale") {
                         tappedObject = hit.collider.gameObject;
                         puzzleBase b = tappedObject.transform.parent.GetComponent<puzzleBase>();
-                        print(b.visual.name);
-                        // Do ui stuff here
+                        GameObject popup = b.visual.transform.Find("Popup").gameObject;
+                        if(popup.activeSelf) {
+                            popup.SetActive(false);
+                        } else {
+                            popup.SetActive(true);
+                        }
                     }
                 }
             }
