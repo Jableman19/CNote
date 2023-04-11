@@ -35,6 +35,7 @@ public class MIDIManager : MonoBehaviour
         });
         _playback.EventPlayed += OnNotePlayed;
         synthManager.resume();
+        _playback.Loop = true;
         _playback.Start();
         playing = true;
     }
