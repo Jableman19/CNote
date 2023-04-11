@@ -61,9 +61,39 @@ MonoBehaviour:
       m_GuidLow: 4826394001385628145
       m_GuidHigh: 10583601951378539445
     m_SerializedTextureGuid:
-      m_GuidLow: 16492838683562876575
-      m_GuidHigh: 15344453531931185864
+      m_GuidLow: 8805773266395803633
+      m_GuidHigh: 10439028716935188731
     m_Size: {x: 0.05, y: 0.05}
     m_SpecifySize: 1
     m_Name: Base_Saw
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4790365668782055517
+      m_GuidHigh: 9845450018211278001
+    m_SerializedTextureGuid:
+      m_GuidLow: 4739192685197869752
+      m_GuidHigh: 5964544313916875259
+    m_Size: {x: 0.05, y: 0.05}
+    m_SpecifySize: 1
+    m_Name: Base_Square
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 5283032010807308753
+      m_GuidHigh: 911262912337624994
+    m_SerializedTextureGuid:
+      m_GuidLow: 5594674018158933499
+      m_GuidHigh: 13019458864609456091
+    m_Size: {x: 0.05, y: 0.05}
+    m_SpecifySize: 1
+    m_Name: Effect_HighPassFilter
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4857038211199056637
+      m_GuidHigh: 3809292798087092136
+    m_SerializedTextureGuid:
+      m_GuidLow: 5171509226434120021
+      m_GuidHigh: 1188179773011476424
+    m_Size: {x: 0.05, y: 0.05}
+    m_SpecifySize: 1
+    m_Name: Effect_LowPassFilter
     m_Texture: {fileID: 0}

@@ -55,7 +55,13 @@ public class ARPlaceTrackedImages : MonoBehaviour
             case "Base_Sine":
                 return Parameter.SINE;
             case "Base_Saw":
-                return Parameter.SAW;  
+                return Parameter.SAW;
+            case "Base_Square":
+                return Parameter.SQUARE;
+            case "Effect_LowPassFilter":
+                return Parameter.LOW_PASS;
+            case "Effect_HighPassFilter":
+                return Parameter.HIGH_PASS;
             case "Effect_Distortion":
                 return Parameter.DISTORTION;
             case "Effect_Reverb":
@@ -76,6 +82,12 @@ public class ARPlaceTrackedImages : MonoBehaviour
                 return visualizations[0];
             case "Base_Saw":
                 return visualizations[1];
+            case "Base_Square":
+                return visualizations[2];
+            case "Effect_LowPassFilter":
+                return visualizations[3];
+            case "Effect_HighPassFilter":
+                return visualizations[4];
             case "Effect_Distortion":
                 return visualizations[5];
             case "Effect_Reverb":

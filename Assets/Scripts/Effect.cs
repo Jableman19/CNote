@@ -22,7 +22,7 @@ public class Effect : MonoBehaviour
 
     public bool isBaseWaveform()
     {
-        return (root_parameter == Parameter.SAW || root_parameter == Parameter.SINE);
+        return (root_parameter == Parameter.SAW || root_parameter == Parameter.SINE || root_parameter == Parameter.SQUARE);
     }
 
     public void Start()
