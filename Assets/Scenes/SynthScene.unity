@@ -4916,6 +4916,7 @@ MonoBehaviour:
   - {fileID: 8463971600623853357, guid: 7aa341f59060f4a9db98408c009c93a7, type: 3}
   - {fileID: 6507752923099231684, guid: a16adf31f83844882bb5841582468d2a, type: 3}
   - {fileID: 5655151947259586720, guid: d7d5dd6c5ecbe024fae5c138eef30626, type: 3}
+  - {fileID: 1283776917118923448, guid: 3315fc7e8f39983489207c3d50636138, type: 3}
   puzzlePiece: {fileID: 5492414551194194807, guid: 45368f399ded34594a115edf3529d8db,
     type: 3}
   timeToDelete: 1.5
