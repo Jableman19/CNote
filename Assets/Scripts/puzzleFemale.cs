@@ -21,7 +21,7 @@ public class puzzleFemale : MonoBehaviour
 
     void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("TRIGER");
+        Debug.Log("TRIGGER");
         // If two pieces slide too close together, somehow collisions occur within the same puzzle piece.
         // Therefore, check to make sure the parent gameobjects for both pieces are the same.
         if(collision.gameObject.tag == "puzzleMale" &&
