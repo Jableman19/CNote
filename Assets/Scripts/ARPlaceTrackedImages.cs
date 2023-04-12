@@ -35,7 +35,8 @@ public class ARPlaceTrackedImages : MonoBehaviour
 
     public void Update()
     {
-        foreach(string imageName in limitedPieces.Keys)
+        List<string> imageNames = new List<string>(limitedPieces.Keys);
+        foreach (string imageName in imageNames)
         {
             limitedPieces[imageName] += Time.deltaTime;
 
