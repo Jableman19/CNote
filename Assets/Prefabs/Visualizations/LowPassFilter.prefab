@@ -5363,6 +5363,23 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2391870946808769918, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: m_text
+      value: A low pass filter blocks out the high-pitched sounds and only allows
+        the lower-pitched sounds to come through, making the music sound a little
+        bit more "mellow" or "calm."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391870946808769918, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391870946808769918, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 2587904186204433959, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -5406,12 +5423,12 @@ PrefabInstance:
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}

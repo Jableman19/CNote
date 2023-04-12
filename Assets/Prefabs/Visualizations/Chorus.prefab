@@ -5783,6 +5783,24 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2391870946808769918, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: m_text
+      value: The chorus effect takes the original sound and adds on its duplicates
+        with slight differences in pitch and time, creating a "shimmery" effect and
+        making it sound as if there are more instruments or voices playing than there
+        really are!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391870946808769918, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391870946808769918, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.55
+      objectReference: {fileID: 0}
     - target: {fileID: 2587904186204433959, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -5826,12 +5844,12 @@ PrefabInstance:
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
