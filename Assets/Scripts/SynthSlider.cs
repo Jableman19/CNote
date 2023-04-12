@@ -21,7 +21,7 @@ public class SynthSlider : MonoBehaviour
         float value = GetComponent<Slider>().value;
         synthManagerFMOD.setParameter(float_name, value);
         //gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = title_text + value;
-        Debug.Log(gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text);
+        //Debug.Log(gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text);
     }
 
 

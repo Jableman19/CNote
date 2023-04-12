@@ -5811,6 +5811,19 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3395402960020757930, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: info
+      value: "The chorus effect takes the original sound and adds on its duplicates
+        with slight differences in pitch and time, creating a \u201Cshimmery\u201D
+        effect and making it sounds as if there are more instruments or voices playing
+        than there really are!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395402960020757930, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: title
+      value: Chorus
+      objectReference: {fileID: 0}
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_Pivot.x

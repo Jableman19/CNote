@@ -6477,6 +6477,18 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3395402960020757930, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: info
+      value: The reverb effect stimulates sound waves to bounce off of lots of different
+        surfaces and create lots of different echoes that overlap and blend together,
+        creating a big, spacious sound that's kind of like an echo, but not as distinct.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395402960020757930, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: title
+      value: Reverb
+      objectReference: {fileID: 0}
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_Pivot.x

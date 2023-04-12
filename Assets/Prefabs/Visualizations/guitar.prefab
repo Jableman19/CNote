@@ -6640,6 +6640,18 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3395402960020757930, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: info
+      value: "Distortion works by taking the sound of the guitar or another instrument
+        and making it louder and more intense, causing the sound to break up and
+        become distorted, making it \u201Crock\u201D!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395402960020757930, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: title
+      value: Distortion
+      objectReference: {fileID: 0}
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_Pivot.x

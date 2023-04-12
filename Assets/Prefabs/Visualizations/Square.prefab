@@ -5646,6 +5646,18 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3395402960020757930, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: info
+      value: A square wave looks like a wave with flat, straight edges. It has a
+        very distinct, "choppy" sound to it. It's often used in electronic music
+        and can sound kind of like a robot or a computer.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395402960020757930, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: title
+      value: Square Wave
+      objectReference: {fileID: 0}
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_Pivot.x

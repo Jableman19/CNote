@@ -5353,15 +5353,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Popup
       objectReference: {fileID: 0}
+    - target: {fileID: 191672980003029040, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 588435361834079598, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 588435361834079598, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 588435361834079598, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1958417724684256490, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
       propertyPath: float_name
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395402960020757930, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: info
+      value: Echo is when you make a sound, like shouting "hello!" into a cave, and
+        you hear the same sound repeated back to you a little bit later. It's usually
+        a pretty distinct, clear repeat of the original sound.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3395402960020757930, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
+      propertyPath: title
+      value: Echo
       objectReference: {fileID: 0}
     - target: {fileID: 4909039865397182177, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
@@ -5470,8 +5497,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6827358670679493145, guid: 9bb74d2f46e5b487b957195ed2da0093,
         type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6827358670679493145, guid: 9bb74d2f46e5b487b957195ed2da0093,
+        type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
