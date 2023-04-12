@@ -7,7 +7,7 @@ public class SynthSlider : MonoBehaviour
 {
 
     public Parameter float_name;
-    public string title_text;
+    //public string title_text;
     SynthManagerFMOD synthManagerFMOD;
 
 
@@ -20,7 +20,7 @@ public class SynthSlider : MonoBehaviour
     {
         float value = GetComponent<Slider>().value;
         synthManagerFMOD.setParameter(float_name, value);
-        gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = title_text + value;
+        //gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = title_text + value;
         Debug.Log(gameObject.GetComponentInChildren<TMPro.TextMeshProUGUI>().text);
     }
 

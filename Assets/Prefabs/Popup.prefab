@@ -654,6 +654,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5321816762598497306}
   - component: {fileID: 4252488743920271564}
+  - component: {fileID: 1958417724684256490}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -734,4 +735,30 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1958417724684256490}
+        m_TargetAssemblyTypeName: SynthSlider, Assembly-CSharp
+        m_MethodName: OnValueChange
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1958417724684256490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9085341651616586381}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45de3fcd7c29b42889e552e0f470ad9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  float_name: 0
+  title_text: 

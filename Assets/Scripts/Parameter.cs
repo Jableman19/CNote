@@ -11,6 +11,7 @@ public enum Parameter
     // EFFECTS
     DISTORTION,
     REVERB,
+    ECHO,
     CHORUS,
 
     // CONTROLLS
