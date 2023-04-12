@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.XR.ARFoundation;
 
 public class TapManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class TapManager : MonoBehaviour
 
     Camera arCam;
     GameObject tappedObject;
+    public GameObject songbook;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,7 @@ public class TapManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.touchCount == 0) {
+        if(Input.touchCount == 0 || songbook.activeSelf) {
             return;
         }
         RaycastHit hit;
