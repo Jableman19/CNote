@@ -54,6 +54,13 @@ public class Songbook : MonoBehaviour
     // Update is called once per frame
     void switchSong(Song s)
     {
+        // set current song UI
+       GameObject ui = GameObject.Find("UI");
+       GameObject currentSong = ui.transform.Find("currentSong").gameObject;
+
+       currentSong.GetComponent<TextMeshProUGUI>().text = "Current Song: " + s.name;
+       
+
        MIDIManager.Instance.ChangeSong(s.src);
        MIDI_Play_Pause.instance.playing = true;
        MIDI_Play_Pause.instance.img.sprite = MIDI_Play_Pause.instance.pause;
