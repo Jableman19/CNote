@@ -24,13 +24,13 @@ public class GoToUI : MonoBehaviour
         {
             // switching to songbook
             
-            currentSong.GetComponent<TextMeshProUGUI>().fontSize = 0;
+            currentSong.GetComponent<TextMeshProUGUI>().enabled = false;
 
         }
         else
         {
             // swtiching to AR UI
-            currentSong.GetComponent<TextMeshProUGUI>().fontSize = 80;
+            currentSong.GetComponent<TextMeshProUGUI>().enabled = true;
         }
     }
 }
