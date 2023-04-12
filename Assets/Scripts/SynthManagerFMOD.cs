@@ -5,7 +5,6 @@ using FMODUnity;
 
 public class SynthManagerFMOD : MonoBehaviour
 {
-
     private FMOD.ChannelGroup group; // Audio Signal Chain.
     private FMOD.DSP osc; // Base Waveform-Oscillator.
 
@@ -14,6 +13,7 @@ public class SynthManagerFMOD : MonoBehaviour
     private FMOD.DSP distortion;
     private FMOD.DSP chorus;
     private FMOD.DSP reverb;
+    private FMOD.DSP echo;
 
     private FMOD.DSP low_pass;
     private FMOD.DSP high_pass;
@@ -38,11 +38,45 @@ public class SynthManagerFMOD : MonoBehaviour
         CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.DISTORTION, out distortion));
         CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.CHORUS, out chorus));
         CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.SFXREVERB, out reverb));
+        CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.ECHO, out echo));
 
         // Create filters.
         CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.LOWPASS, out low_pass));
         CHECK_OK(FMODUnity.RuntimeManager.CoreSystem.createDSPByType(FMOD.DSP_TYPE.HIGHPASS, out high_pass));
 
+        setEffectDefaults();
+    }
+
+
+    private void setEffectDefaults()
+    {
+        // DISTORTION
+        CHECK_OK(echo.setParameterFloat((int)FMOD.DSP_DISTORTION.LEVEL, 0.7f));
+
+        // CHORUS
+        CHECK_OK(chorus.setParameterFloat((int)FMOD.DSP_CHORUS.DEPTH, 10f));
+        CHECK_OK(chorus.setParameterFloat((int)FMOD.DSP_CHORUS.RATE, 4f));
+
+        // SFX Reverb
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.DECAYTIME, 3900f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.EARLYDELAY, 20f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.LATEDELAY, 29f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.HFREFERENCE, 5000f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.HFDECAYRATIO, 70f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.DIFFUSION, 100f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.DENSITY, 100f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.LOWSHELFFREQUENCY, 250f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.LOWSHELFGAIN, 0f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.HIGHCUT, 5650f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.EARLYLATEMIX, 80f));
+        CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.WETLEVEL, -11.8f));
+
+        // ECHO
+        CHECK_OK(echo.setParameterFloat((int)FMOD.DSP_ECHO.DRYLEVEL, -5f));
+        CHECK_OK(echo.setParameterFloat((int)FMOD.DSP_ECHO.WETLEVEL, -15f));
+        CHECK_OK(echo.setParameterFloat((int)FMOD.DSP_ECHO.FEEDBACK, 0.50f));
+
+        
     }
 
     public void setParameter(Parameter p, bool status)
@@ -84,6 +118,10 @@ public class SynthManagerFMOD : MonoBehaviour
                 if (!status) { CHECK_OK(group.removeDSP(high_pass)); }
                 else { CHECK_OK(group.addDSP(FMOD.CHANNELCONTROL_DSP_INDEX.TAIL, high_pass)); }
                 break;
+            case (Parameter.ECHO):
+                if (!status) { CHECK_OK(group.removeDSP(echo)); }
+                else { CHECK_OK(group.addDSP(FMOD.CHANNELCONTROL_DSP_INDEX.TAIL, echo)); }
+                break;
             default:
                 throw new System.ArgumentException("Cannot pass a boolean to effect.", nameof(p));
         }
@@ -108,6 +146,11 @@ public class SynthManagerFMOD : MonoBehaviour
     public void playNote(float pitch)
     {
         CHECK_OK(osc.setParameterFloat((int) FMOD.DSP_OSCILLATOR.RATE, pitch));
+    }
+
+    public void onNoteOff()
+    {
+        CHECK_OK(osc.setParameterFloat((int)FMOD.DSP_OSCILLATOR.RATE, 0f));
     }
 
     public void pause() { CHECK_OK(group.setPaused(true)); }

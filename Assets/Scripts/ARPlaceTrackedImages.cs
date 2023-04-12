@@ -68,7 +68,9 @@ public class ARPlaceTrackedImages : MonoBehaviour
             case "Effect_Reverb":
                 return Parameter.REVERB;
             case "Effect_Chorus":
-                return Parameter.CHORUS; 
+                return Parameter.CHORUS;
+            case "EFFect_Echo":
+                return Parameter.ECHO;
             default:
                 throw new System.ArgumentException("Name is not an effect.", nameof(name));
          }

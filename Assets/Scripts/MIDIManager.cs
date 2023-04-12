@@ -42,8 +42,16 @@ public class MIDIManager : MonoBehaviour
 
     private void OnNotePlayed(object sender, MidiEventPlayedEventArgs e)
     {
-        NoteOnEvent note_on = e.Event as NoteOnEvent;
-        synthManager.playNote(midiToFrequency(note_on.NoteNumber));        
+        if (e.Event is NoteOnEvent)
+        {
+            NoteOnEvent note_on = e.Event as NoteOnEvent;
+            synthManager.playNote(midiToFrequency(note_on.NoteNumber));
+        }
+
+        if(e.Event is NoteOffEvent)
+        {
+            synthManager.onNoteOff();
+        }
     }
 
     public void PauseSong() {
