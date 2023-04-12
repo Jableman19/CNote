@@ -121,6 +121,17 @@ public class ARPlaceTrackedImages : MonoBehaviour
                 GameObject new_viz = Instantiate(nameToViz(imageName), new_piece.transform);
                 new_piece.GetComponentInChildren<puzzleBase>().visual = new_viz;
                 //new_piece.GetComponentInChildren<puzzleBase>().animating = true;
+                if (imageName.StartsWith("Base"))
+                {
+                    string[] baseNames = { "Base_Sine" , "Base_Saw", "Base_Square" };
+                    foreach(string name in baseNames)
+                    {
+                        if(name != imageName && activePieces.ContainsKey(name))
+                        {
+                            Destroy(activePieces[name]);
+                        }
+                    }
+                }
 
 
             }
@@ -133,6 +144,7 @@ public class ARPlaceTrackedImages : MonoBehaviour
             {
                 Destroy(activePieces[imageName]);
                 activePieces.Remove(imageName);
+                limitedPieces.Remove(imageName);
             }
 
             if (trackedImage.trackingState == TrackingState.Limited)
@@ -156,6 +168,17 @@ public class ARPlaceTrackedImages : MonoBehaviour
                     GameObject new_viz = Instantiate(nameToViz(imageName), piece.transform);
                     piece.GetComponentInChildren<puzzleBase>().visual = new_viz;
                     //piece.GetComponentInChildren<puzzleBase>().animating = true;
+                    if (imageName.StartsWith("Base"))
+                    {
+                        string[] baseNames = { "Base_Sine", "Base_Saw", "Base_Square" };
+                        foreach (string name in baseNames)
+                        {
+                            if (name != imageName && activePieces.ContainsKey(name))
+                            {
+                                Destroy(activePieces[name]);
+                            }
+                        }
+                    }
                 }
 
                 float time;
