@@ -69,7 +69,7 @@ public class ARPlaceTrackedImages : MonoBehaviour
                 return Parameter.REVERB;
             case "Effect_Chorus":
                 return Parameter.CHORUS;
-            case "EFFect_Echo":
+            case "Effect_Echo":
                 return Parameter.ECHO;
             default:
                 throw new System.ArgumentException("Name is not an effect.", nameof(name));
@@ -97,6 +97,8 @@ public class ARPlaceTrackedImages : MonoBehaviour
                 return visualizations[6];
             case "Effect_Chorus":
                 return visualizations[7];
+            case "Effect_Echo":
+                return visualizations[8];
             default:
                 throw new System.ArgumentException("Name is not an effect.", nameof(name));
         }

@@ -44,6 +44,16 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1564802320741654066, guid: 94604a6541a2f4f2a97d5610532dd939,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1564802322148380079, guid: 94604a6541a2f4f2a97d5610532dd939,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1564802322178599060, guid: 94604a6541a2f4f2a97d5610532dd939,
         type: 3}
       propertyPath: m_Name

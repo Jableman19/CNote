@@ -1916,7 +1916,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infoPanel: {fileID: 79444500}
   defaultTitle: FAQ
-  defaultText: Lorem ipsum
+  defaultText: Welcome to C-Note! This app is an educational tool to teach children
+    the basics of sound synthesis via simple to use puzzle pieces. To create a sound,
+    pick one of the 3 base waves and then connect any of the puzzle piece effects
+    into the chain. You can test your sound wave with various songs found in the
+    song book. Tap on any of the puzzle visualizations on your screen to learn more
+    about the effect!
 --- !u!1 &481276353
 GameObject:
   m_ObjectHideFlags: 0
