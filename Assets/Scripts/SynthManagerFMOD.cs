@@ -51,7 +51,7 @@ public class SynthManagerFMOD : MonoBehaviour
     private void setEffectDefaults()
     {
         // DISTORTION
-        CHECK_OK(echo.setParameterFloat((int)FMOD.DSP_DISTORTION.LEVEL, 0.7f));
+        CHECK_OK(distortion.setParameterFloat((int)FMOD.DSP_DISTORTION.LEVEL, .83f));
 
         // CHORUS
         CHECK_OK(chorus.setParameterFloat((int)FMOD.DSP_CHORUS.DEPTH, 10f));
@@ -132,11 +132,30 @@ public class SynthManagerFMOD : MonoBehaviour
         switch (p)
         {
             case (Parameter.LOW_PASS_FREQUENCY):
-                osc.setParameterFloat((int)FMOD.DSP_LOWPASS.CUTOFF, value);
+                float val = value * 15000f + 5000;
+                print("Passed Val: " + val);
+                CHECK_OK(osc.setParameterFloat((int)FMOD.DSP_LOWPASS.CUTOFF, val));
                 break;
             case (Parameter.LOW_PASS_RESONANCE):
                 osc.setParameterFloat((int)FMOD.DSP_LOWPASS.RESONANCE, value);
                 break;
+            case (Parameter.DISTORTION):
+                val = .75f + .25f * value;
+                CHECK_OK(distortion.setParameterFloat((int)FMOD.DSP_DISTORTION.LEVEL, val));
+                break;
+            case (Parameter.CHORUS):
+                val = 1f + 19f * value;
+                CHECK_OK(chorus.setParameterFloat((int)FMOD.DSP_CHORUS.RATE, val));
+                break;
+            case (Parameter.REVERB):
+                val = 2000f + 18000f * value;
+                CHECK_OK(reverb.setParameterFloat((int)FMOD.DSP_SFXREVERB.DECAYTIME, val));
+                break;
+            case (Parameter.ECHO):
+                val = 500 + 4500f * value;
+                CHECK_OK(echo.setParameterFloat((int)FMOD.DSP_ECHO.DELAY, val));
+                break;
+
             default:
                 throw new System.ArgumentException("Cannot pass a float to effect.", nameof(p));
 
