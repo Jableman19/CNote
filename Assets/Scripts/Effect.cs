@@ -65,6 +65,9 @@ public class Effect : MonoBehaviour
 
     public void OnDestroy()
     {
-        setParameter(root_parameter, false);
+        if (!isBaseWaveform())
+        {
+            setParameter(root_parameter, false);
+        }
     }
 }

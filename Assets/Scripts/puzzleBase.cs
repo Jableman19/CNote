@@ -12,7 +12,7 @@ public class puzzleBase : MonoBehaviour
     public GameObject visual;
     //public bool animating = true;
     [HideInInspector] public Animator anim;
-    private Effect effect;
+    public Effect effect;
 
 
     // Start is called before the first frame update
@@ -41,6 +41,11 @@ public class puzzleBase : MonoBehaviour
         {
             return prevChain ? prevChain.GetComponent<puzzleBase>().hasRoot() : false;
         }
+    }
+
+    private void OnDisable()
+    {
+        effect.setParameter(effect.root_parameter, false);
     }
 
     // Update is called once per frame

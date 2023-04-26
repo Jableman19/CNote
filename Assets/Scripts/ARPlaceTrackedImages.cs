@@ -22,6 +22,7 @@ public class ARPlaceTrackedImages : MonoBehaviour
     private Dictionary<string, bool> soundsActive = new Dictionary<string, bool>();
     private Dictionary<string, GameObject> activePieces = new Dictionary<string, GameObject>();
     private Dictionary<string, float> limitedPieces = new Dictionary<string, float>();
+    private List<GameObject> activeBases = new List<GameObject>();
     void Awake() {
         Application.targetFrameRate = 60;
         trackedImagesManager = GetComponent<ARTrackedImageManager>();
@@ -42,6 +43,15 @@ public class ARPlaceTrackedImages : MonoBehaviour
 
             if(limitedPieces[imageName] > timeToDelete)
             {
+                if (imageName.StartsWith("Base"))
+                {
+                    activeBases.Remove(activePieces[imageName]);
+                    //print("activeBases Count: " + activeBases.Count + ", activePieces[imageRemoved].activeSelf: " + activePieces[imageName].activeSelf);
+                    if (activeBases.Count > 0 && activePieces[imageName].activeSelf)
+                    {
+                        activeBases[activeBases.Count - 1].SetActive(true);
+                    }
+                }
                 Destroy(activePieces[imageName]);
                 activePieces.Remove(imageName);
                 limitedPieces.Remove(imageName);
@@ -125,12 +135,14 @@ public class ARPlaceTrackedImages : MonoBehaviour
                 //new_piece.GetComponentInChildren<puzzleBase>().animating = true;
                 if (imageName.StartsWith("Base"))
                 {
+                    activeBases.Add(new_piece);
                     string[] baseNames = { "Base_Sine" , "Base_Saw", "Base_Square" };
                     foreach(string name in baseNames)
                     {
                         if(name != imageName && activePieces.ContainsKey(name))
                         {
-                            Destroy(activePieces[name]);
+                            activePieces[name].SetActive(false);
+                            activePieces[name].GetComponentInChildren<puzzleBase>().anim.enabled = false;
                         }
                     }
                 }
@@ -144,6 +156,15 @@ public class ARPlaceTrackedImages : MonoBehaviour
             // Detecting when a piece is no longer connected is super hard... This should work okay though.
             if (trackedImage.trackingState == TrackingState.None)
             {
+                if (imageName.StartsWith("Base"))
+                {
+                    activeBases.Remove(activePieces[imageName]);
+                    print("activeBases Count: " + activeBases.Count + ", activePieces[imageRemoved].activeSelf: " + activePieces[imageName].activeSelf);
+                    if (activeBases.Count > 0 && activePieces[imageName].activeSelf)
+                    {
+                        activeBases[activeBases.Count - 1].SetActive(true);
+                    }
+                }
                 Destroy(activePieces[imageName]);
                 activePieces.Remove(imageName);
                 limitedPieces.Remove(imageName);
@@ -172,12 +193,16 @@ public class ARPlaceTrackedImages : MonoBehaviour
                     //piece.GetComponentInChildren<puzzleBase>().animating = true;
                     if (imageName.StartsWith("Base"))
                     {
+
+                        activeBases.Add(piece);
                         string[] baseNames = { "Base_Sine", "Base_Saw", "Base_Square" };
                         foreach (string name in baseNames)
                         {
                             if (name != imageName && activePieces.ContainsKey(name))
                             {
-                                Destroy(activePieces[name]);
+                                activePieces[name].GetComponentInChildren<puzzleBase>().effect.setParameter(activePieces[name].GetComponentInChildren<puzzleBase>().effect.root_parameter, false);
+                                activePieces[name].SetActive(false);
+                                activePieces[name].GetComponentInChildren<puzzleBase>().anim.enabled = false;
                             }
                         }
                     }
@@ -195,6 +220,15 @@ public class ARPlaceTrackedImages : MonoBehaviour
 
         foreach(ARTrackedImage trackedImage in eventArgs.removed) {
             string imageName = trackedImage.referenceImage.name;
+
+            if (imageName.StartsWith("Base"))
+            {
+                activeBases.Remove(activePieces[imageName]);
+                if (activeBases.Count > 0 && activePieces[imageName].activeSelf)
+                {
+                    activeBases[activeBases.Count - 1].SetActive(true);
+                }
+            }
             Destroy(activePieces[imageName]);
             activePieces.Remove(imageName);
         }
