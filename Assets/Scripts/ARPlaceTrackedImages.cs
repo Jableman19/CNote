@@ -200,7 +200,6 @@ public class ARPlaceTrackedImages : MonoBehaviour
                         {
                             if (name != imageName && activePieces.ContainsKey(name))
                             {
-                                activePieces[name].GetComponentInChildren<puzzleBase>().effect.setParameter(activePieces[name].GetComponentInChildren<puzzleBase>().effect.root_parameter, false);
                                 activePieces[name].SetActive(false);
                                 activePieces[name].GetComponentInChildren<puzzleBase>().anim.enabled = false;
                             }
