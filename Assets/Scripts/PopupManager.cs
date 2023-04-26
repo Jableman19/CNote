@@ -10,6 +10,7 @@ public class PopupManager : MonoBehaviour
     public GameObject infoPanel;
 
     public string defaultTitle;
+    [TextArea(15,20)]
     public string defaultText;
     // Start is called before the first frame update
     void Start()
